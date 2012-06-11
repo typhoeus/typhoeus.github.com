@@ -1,6 +1,6 @@
 # Typhoeus
 
-This is a documentation site for (Typhoeus)[http://github.com/typhoeus/typhoeus].
+This is a documentation site for [Typhoeus](http://github.com/typhoeus/typhoeus).
 
 ## Install Dependencies
 
