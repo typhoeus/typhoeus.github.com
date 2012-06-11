@@ -20,6 +20,6 @@ In order to modify contents and launch dev environment, run:
 
 ## License & Copyright
 
-Copyright (C) 2011-2012
+Copyright (C) 2011-2012 Typhoeus development team
 
 Distributed under the MIT License
