@@ -126,6 +126,10 @@ on\_complete handler of the request object.
 
 <script src="https://gist.github.com/2897949.js?file=caching.rb"></script>
 
+The example shows that you can provide a block for cache_getter and cache_setter
+which is responsible for extracting the information from a caching solution you
+prefer.
+
 ### Direct Stubbing
 
 Hydra allows you to stub out specific urls and patterns to avoid hitting
