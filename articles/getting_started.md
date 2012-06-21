@@ -151,24 +151,24 @@ All of the quick requests are done using the singleton hydra object. If you
 want to enable caching or stubbing on the quick requests, set those options on
 the singleton.
 
-<script src="https://gist.github.com/2897980.js?file=singleton.rb"></script>
+<script src="https://gist.github.com/2965445.js?file=singleton.rb"></script>
 
 ### Timeouts
 
 No exceptions are raised on HTTP timeouts. You can check whether a request
 timed out with the following methods:
 
-<script src="https://gist.github.com/2897980.js?file=timeouts.rb"></script>
+<script src="https://gist.github.com/2965445.js?file=timeouts.rb"></script>
 
 ### Following Redirections
 
 Use `:follow_location => true`, eg:
 
-<script src="https://gist.github.com/2897980.js?file=follow_redirect.rb"></script>
+<script src="https://gist.github.com/2965445.js?file=follow_redirect.rb"></script>
 
 ### Basic Authentication
 
-<script src="https://gist.github.com/2897980.js?file=basic_auth.rb"></script>
+<script src="https://gist.github.com/2965445.js?file=basic_auth.rb"></script>
 
 ### SSL
 
@@ -202,11 +202,11 @@ features, such as stubbing/mocking.
 
 SSL Certs can be provided to the Easy interface:
 
-<script src="https://gist.github.com/2897980.js?file=libcurl_1.rb"></script>
+<script src="https://gist.github.com/2965445.js?file=libcurl_1.rb"></script>
 
 or directly to a Typhoeus::Request :
 
-<script src="https://gist.github.com/2897980.js?file=libcurl_2.rb"></script>
+<script src="https://gist.github.com/2965445.js?file=libcurl_2.rb"></script>
 
 ##  Advanced authentication
 
@@ -216,7 +216,7 @@ authentication in Ruby, and other libcurl’s authentications method were made
 possible as a result. Now you can do it via Typhoeus::Easy interface using the
 following API.
 
-<script src="https://gist.github.com/2897980.js?file=advanced_auth.rb"></script>
+<script src="https://gist.github.com/2965445.js?file=advanced_auth.rb"></script>
 
 ### Other authentication types
 
@@ -241,7 +241,7 @@ selected authentication method.
 There’s also an easy way to perform any kind of authentication via the quick
 request interface:
 
-<script src="https://gist.github.com/2897980.js?file=auth_via_request_interface.rb"></script>
+<script src="https://gist.github.com/2965445.js?file=auth_via_request_interface.rb"></script>
 
 All methods listed above is available in a shorter form – :basic, :digest,
 :gssnegotiate, :ntlm, :digest\_ie, :auto.
