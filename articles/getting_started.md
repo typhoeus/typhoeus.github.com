@@ -259,12 +259,7 @@ see the numeric values of different auth types.
 
 Sometime it’s useful to see verbose output from curl. You may now enable it:
 
-    e = Typhoeus::Easy.new
-    e.verbose = 1
-
-or using the quick request:
-
-    e = Typhoeus::Request.get("http://example.com", :verbose => true)
+    Typhoeus::Request.get("http://example.com", :verbose => true)
 
 Just remember that libcurl prints it’s debug output to the console (to
 STDERR), so you’ll need to run your scripts from the console to see it.
