@@ -62,7 +62,7 @@ Response, and Hydra. Request represents an HTTP request object, response
 represents an HTTP response, and Hydra manages making parallel HTTP
 connections.
 
-<script src="https://gist.github.com/2897949.js?file=typhoeus_getting_started_1.rb"></script>
+<script src="https://gist.github.com/2965397.js?file=typhoeus_getting_started_1.rb"></script>
 
 ### Making Quick Requests
 
@@ -70,14 +70,14 @@ The request object has some convenience methods for performing single HTTP
 requests. The arguments are the same as those you pass into the request
 constructor.
 
-<script src="https://gist.github.com/2897949.js?file=quick_requests.rb"></script>
+<script src="https://gist.github.com/2965397.js?file=quick_requests.rb"></script>
 
 ### Handling HTTP errors
 
 You can query the response object to figure out if you had a successful
 request or not. Here’s some example code that you might use to handle errors.
 
-<script src="https://gist.github.com/2897949.js?file=handling_http_errors.rb"></script>
+<script src="https://gist.github.com/2965397.js?file=handling_http_errors.rb"></script>
 
 This also works with serial (blocking) requests in the same fashion. Both
 serial and parallel requests return a Response object.
@@ -88,11 +88,11 @@ A File object can be passed as a param for a POST request to handle uploading
 files to the server. Typhoeus will upload the file as the original file name
 and use Mime::Types to set the content type.
 
-<script src="https://gist.github.com/2897949.js?file=handling_file_uploads.rb"></script>
+<script src="https://gist.github.com/2965397.js?file=handling_file_uploads.rb"></script>
 
 ### Making Parallel Requests
 
-<script src="https://gist.github.com/2897949.js?file=making_parallel_requests.rb"></script>
+<script src="https://gist.github.com/2965397.js?file=making_parallel_requests.rb"></script>
 
 The execution of that code goes something like this. The first and second
 requests are built and queued. When hydra is run the first and second requests
@@ -109,14 +109,15 @@ limit is 200. When more requests than that are queued up, hydra will save them
 for later and start the requests as others are finished. You can raise or
 lower the concurrency limit through the Hydra constructor.
 
-<script src="https://gist.github.com/2897949.js?file=specifying_max_concurrency.rb"></script>
+<script src="https://gist.github.com/2965397.js?file=specifying_max_concurrency.rb"></script>
 
+<!--
 ### Memoization
 
 Hydra memoizes requests within a single run call. You can also disable
 memoization.
 
-<script src="https://gist.github.com/2897949.js?file=memoization.rb"></script>
+<script src="https://gist.github.com/2965397.js?file=memoization.rb"></script>
 
 ### Caching
 
@@ -124,9 +125,9 @@ Hydra includes built in support for creating cache getters and setters. In the
 following example, if there is a cache hit, the cached object is passed to the
 on\_complete handler of the request object.
 
-<script src="https://gist.github.com/2897949.js?file=caching.rb"></script>
+<script src="https://gist.github.com/2965397.js?file=caching.rb"></script>
 
-The example shows that you can provide a block for cache_getter and cache_setter
+The example shows that you can provide a block for cache\_getter and cache\_setter
 which is responsible for extracting the information from a caching solution you
 prefer.
 
@@ -135,13 +136,14 @@ prefer.
 Hydra allows you to stub out specific urls and patterns to avoid hitting
 remote servers while testing.
 
-<script src="https://gist.github.com/2897949.js?file=direct_stubbing.rb"></script>
+<script src="https://gist.github.com/2965397.js?file=direct_stubbing.rb"></script>
 
 The queued request will hit the stub. The on\_complete handler will be called
 and will be passed the response object. You can also specify a regex to match
 urls.
 
-<script src="https://gist.github.com/2897949.js?file=direct_stubbing_2.rb"></script>
+<script src="https://gist.github.com/2965397.js?file=direct_stubbing_2.rb"></script>
+-->
 
 ### The Singleton
 
@@ -173,24 +175,22 @@ Use `:follow_location => true`, eg:
 SSL comes built in to libcurl so it’s in Typhoeus as well. If you pass in a
 url with “https” it should just work assuming that you have your [cert
 bundle](http://curl.haxx.se/docs/caextract.html) in order and the server is
-verifiable. You must also have libcurl built with SSL support enabled. You can
-check that by doing this:
-
-    Typhoeus::Easy.new.curl_version # output should include OpenSSL/...
+verifiable. You must also have libcurl built with SSL support enabled.
 
 Now, even if you have libcurl built with OpenSSL you may still have a messed
 up cert bundle or if you’re hitting a non-verifiable SSL server then you’ll
 have to disable peer verification to make SSL work. Like this:
 
-    Typhoeus::Request.get("https://mail.google.com/mail", :disable_ssl_peer_verification => true)
+    Typhoeus::Request.get("https://mail.google.com/mail", :ssl_verifypeer => true)
 
 If you are getting “SSL: certificate subject name does not match target host
 name” from curl (ex:- you are trying to access to b.c.host.com when the
 certificate subject is \*.host.com). You can disable host verification. Like
 this:
 
-    Typhoeus::Request.get("https://mail.google.com/mail", :disable_ssl_host_verification => true)
+    Typhoeus::Request.get("https://mail.google.com/mail", :ssl_verifyhost => false)
 
+<!--
 ### LibCurl
 
 Typhoeus also has a more raw libcurl interface. These are the Easy and Multi
@@ -253,6 +253,7 @@ the server via Typhoues::Easy#auth\_methods call. It will return a number
 
 that you’ll need to decode yourself, please refer to easy.rb source code to
 see the numeric values of different auth types.
+-->
 
 ##  Verbose debug output
 
@@ -268,6 +269,7 @@ or using the quick request:
 Just remember that libcurl prints it’s debug output to the console (to
 STDERR), so you’ll need to run your scripts from the console to see it.
 
+<!---
 ##  Benchmarks
 
 I set up a benchmark to test how the parallel performance works vs Ruby’s
@@ -285,3 +287,4 @@ of libcurl Easy handles to use. For this benchmark I warmed the pool first. So
 if you test this out it may be a bit slower until the Easy handle pool has
 enough in it to run all the simultaneous requests. For some reason the easy
 handles can take quite some time to allocate.
+-->
